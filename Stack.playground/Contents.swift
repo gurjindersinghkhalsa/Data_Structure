@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 struct Stack {
     var arrItem:[Int] = []
@@ -79,4 +80,46 @@ stringStack.popItem()
 stringStack.popItem()
 stringStack.popItem()
 
+protocol Queue {
+    associatedtype Element
+    mutating func enqueue(element: Element)-> Bool // Insert element at the back of the queue. Return true if the operation was successfule
+    mutating func dequeue()-> Element? // Remove the element at the front of the queue and return it
+    var isEmpty: Bool { get } // Check if the queue is empty
+    var peek: Element? { get } // Return element at the front of the queue without removing
+}
+
+public struct QueueArray<T>: Queue {
+   
+    private var array: [T] = []
+    public init() {}
+    
+    public var isEmpty: Bool {
+        self.array.isEmpty
+    }
+    public var peek: T? {
+        self.array.first
+    }
+    mutating public func enqueue(element: T)-> Bool {
+        self.array.append(element)
+        return true
+    }
+    mutating public func dequeue()-> T? {
+        isEmpty ? nil :  self.array.removeFirst()
+    }
+}
+
+extension QueueArray: CustomStringConvertible {
+    public var description: String {
+        String(describing: "Elements are \(array)")
+    }
+}
+print("---------Queue Operations------------")
+var queue = QueueArray<String>()
+queue.enqueue(element: "Gurjinder Singh")
+queue.enqueue(element: "Amit Singh")
+queue.enqueue(element: "Harwinder Singh")
+queue
+queue.dequeue()
+queue
+queue.peek
 
