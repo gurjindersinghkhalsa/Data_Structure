@@ -123,3 +123,8 @@ queue.dequeue()
 queue
 queue.peek
 
+// Most of the operations are constant time except for dequeue(), which take linear time.
+// enqueue - Average case - O(1) Worst case -O(n)
+// dequeue - Average case - O(n) Worst case -O(n)
+// Space complexity - Average case - O(n) Worst case -O(n)
+
