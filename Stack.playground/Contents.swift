@@ -130,13 +130,13 @@ queue.peek
 // dequeue - Average case - O(n) Worst case -O(n)
 // Space complexity - Average case - O(n) Worst case -O(n)
 
-class Node<T> {
+class Node<T: Equatable> { // ==
     var value: T?
     var next: Node?
     
 }
 
-class LinkedList<T> {
+class LinkedList<T: Equatable> {
     var node: Node<T>?
     
     func insertNode(value: T) {
