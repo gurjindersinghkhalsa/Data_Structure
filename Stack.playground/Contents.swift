@@ -122,9 +122,28 @@ queue
 queue.dequeue()
 queue
 queue.peek
+// The Big O notation for constant time is O(1).
+//The Big O notation for linear time is O(n).
 
 // Most of the operations are constant time except for dequeue(), which take linear time.
 // enqueue - Average case - O(1) Worst case -O(n)
 // dequeue - Average case - O(n) Worst case -O(n)
 // Space complexity - Average case - O(n) Worst case -O(n)
 
+class Node<T> {
+    var value: T?
+    var next: Node?
+    
+}
+
+class LinkedList<T> {
+    var node: Node<T>?
+    
+    func insertNode(value: T) {
+        
+    }
+    
+    func removeode(value: T) {
+        
+    }
+}
