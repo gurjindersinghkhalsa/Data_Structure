@@ -130,20 +130,44 @@ queue.peek
 // dequeue - Average case - O(n) Worst case -O(n)
 // Space complexity - Average case - O(n) Worst case -O(n)
 
-class Node<T: Equatable> { // ==
+class Node<T: Equatable> {
     var value: T?
     var next: Node?
     
 }
 
 class LinkedList<T: Equatable> {
-    var node: Node<T>?
+    var head = Node<T>()
     
     func insertNode(value: T) {
-        
+        if self.head.value == nil { // first node
+            self.head.value = value
+        } else {
+            var currentNode = self.head
+            while currentNode.next != nil {
+                currentNode = (currentNode.next)!
+            }
+            let newNode = Node<T>()
+            newNode.value = value
+            currentNode.next = newNode
+        }
     }
     
     func removeode(value: T) {
         
     }
+    
+    func printAll() {
+        var currentNode: Node! = self.head
+        while currentNode != nil && currentNode.value != nil {
+            print("Value is \(currentNode.value!)")
+//            if currentNode.next != nil {
+                currentNode = currentNode.next
+//            }
+        }
+    }
 }
+
+let linkedList = LinkedList<Int>()
+linkedList.insertNode(value: 12)
+linkedList.printAll()
